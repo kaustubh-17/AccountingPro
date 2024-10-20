@@ -1,0 +1,59 @@
+<div class="container mt-1">
+    <div class="row pt-2 pb-3">
+        <div class="col-6">
+            <h2>Categories</h2>
+        </div>
+        <div class="col-6 text-end pr-4">
+            <button class="btn btn-success" [routerLink]="['/expense-tracker/create-category']">
+                <i class="fal fa-plus-square"></i>
+                Add New Category</button>
+        </div>
+    </div>
+    <div class="custom-style">
+        <table class="table table-bordered table-group-divider table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <div class="row custom-padding">
+                        <div class="col-2">
+                            <th>Category ID</th>
+                        </div>
+                        <div class="col-3">
+                            <th>Category Name</th>
+                        </div>
+                        <div class="col-4">
+                            <th>Description</th>
+                        </div>
+                        <div class="col-3">
+                            <th>Actions</th>
+                        </div>
+                    </div>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let category of categories">
+                    <div class="row  custom-padding">
+
+                        <div class="col-2">
+                            <td>{{ category.id }}</td>
+                        </div>
+                        <div class="col-3">
+                            <td>{{ category.categoryName }}</td>
+                        </div>
+
+                        <div class="col-4">
+                            <td>{{ category.description }}</td>
+                        </div>
+                        <div class="col-3">
+                            <td>
+                                <button class="btn btn-primary"
+                                    [routerLink]="['/expense-tracker/edit-category', category.id]">Edit</button>
+                                <button class="btn btn-danger" (click)="openConfirmDialog(category.id)">Delete</button>
+                            </td>
+                        </div>
+                    </div>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <app-confirm-dialog #confirmDialog (confirm)="onConfirm($event)"></app-confirm-dialog>
+</div>

@@ -1,0 +1,43 @@
+<div class="form-container">
+    <div class="row pb-2">
+        <h2 class="text-primary" style="text-align:center" *ngIf="!companyId">Create New Company</h2>
+        <h2 class="text-primary" style="text-align:center" *ngIf="companyId">Edit Company</h2>
+    </div>
+    <form [formGroup]="companyForm" (ngSubmit)="saveCompany()">
+        <div class="mb-3 row p-1">
+            <label for="compName">Company Name</label>
+            <input id="compName" type="text" class="form-control" formControlName="compName">
+            <div *ngIf="companyForm.get('compName').touched && companyForm.get('compName').invalid" class="text-danger">
+                Vendor Name is required
+            </div>
+        </div>
+
+        <div class="mb-3 row p-1">
+            <label for="dateOfVenture">Date of Venture</label>
+            <input id="dateOfVenture" type="date" class="form-control" formControlName="dateOfVenture">
+            <div *ngIf="companyForm.get('dateOfVenture').touched && companyForm.get('dateOfVenture').invalid"
+                class="text-danger">
+                Date of Venture is required
+            </div>
+        </div>
+
+        <div class="mb-3 row p-1">
+            <label for="domain">Domain</label>
+            <input id="domain" type="text" class="form-control" formControlName="domain">
+            <div *ngIf="companyForm.get('domain').touched && companyForm.get('domain').invalid" class="text-danger">
+                Domain is required
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <button type="submit" class="btn btn-primary form-control">Save</button>
+            </div>
+            <div class="col-6">
+                <a class="btn btn-secondary form-control" [routerLink]="['/expense-tracker/companies']">Back To
+                    List</a>
+            </div>
+        </div>
+        <app-success #success></app-success>
+    </form>
+</div>

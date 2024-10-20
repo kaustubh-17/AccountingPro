@@ -1,0 +1,133 @@
+{
+  "employees": [
+    {
+      "id": "uls6goY",
+      "emp_name": "kanchan",
+      "emp_username": "kanchan",
+      "emp_password": "kanchan",
+      "emp_email": "kan@x.com",
+      "emp_phone": "9876543212",
+      "emp_gender": "Female",
+      "emp_department": "HR",
+      "emp_role": "Senior",
+      "emp_experience": "5",
+      "emp_doj": "20/02/23",
+      "emp_project": "iTime",
+      "emp_salary": "34567",
+      "emp_isAdmin": false
+    },
+    {
+      "id": "VAOf6uo",
+      "emp_name": "kaustubh",
+      "emp_username": "kaust",
+      "emp_password": "kk",
+      "emp_email": "kat@email.com",
+      "emp_phone": "23324",
+      "emp_gender": "Male",
+      "emp_department": "HR",
+      "emp_role": "Junior",
+      "emp_experience": "3",
+      "emp_doj": "20/02/23",
+      "emp_project": "iTime",
+      "emp_salary": "87538",
+      "emp_isAdmin": false
+    },
+    {
+      "id": "XWcldHq",
+      "emp_name": "jskhfjewshk",
+      "emp_username": null,
+      "emp_password": null,
+      "emp_email": null,
+      "emp_phone": null,
+      "emp_gender": null,
+      "emp_department": null,
+      "emp_role": null,
+      "emp_experience": null,
+      "emp_doj": null,
+      "emp_project": null,
+      "emp_salary": null,
+      "emp_isAdmin": false
+    },
+    {
+      "id": "bKghn4s",
+      "emp_name": "sadfwe",
+      "emp_username": null,
+      "emp_password": null,
+      "emp_email": null,
+      "emp_phone": null,
+      "emp_gender": null,
+      "emp_department": null,
+      "emp_role": null,
+      "emp_experience": null,
+      "emp_doj": null,
+      "emp_project": null,
+      "emp_salary": null,
+      "emp_isAdmin": false
+    },
+    {
+      "emp_name": "shjfksadad",
+      "emp_username": null,
+      "emp_password": null,
+      "emp_email": null,
+      "emp_phone": null,
+      "emp_gender": null,
+      "emp_department": null,
+      "emp_role": null,
+      "emp_experience": null,
+      "emp_doj": null,
+      "emp_project": null,
+      "emp_salary": null,
+      "id": "K6ZPNDv"
+    }
+  ],
+  "users": [
+    {
+      "id": "2",
+      "name": "dsf",
+      "username": "dfs",
+      "password": "dfs",
+      "email": "sdfdsf",
+      "phone": "dfs"
+    },
+    {
+      "name": "sadsd",
+      "username": "dfs",
+      "password": "dfs",
+      "email": "dfs",
+      "phone": "cxv",
+      "id": "SFIZ3OY"
+    },
+    {
+      "id": "34",
+      "name": "jayant",
+      "username": "423",
+      "password": "324",
+      "email": "234",
+      "phone": "234"
+    },
+    {
+      "id": "qKdRtZv",
+      "name": "jayant",
+      "username": "jay",
+      "password": "jay",
+      "email": "hsad",
+      "phone": "231321"
+    },
+    {
+      "id": "_qq38EP",
+      "name": "mayank",
+      "username": "jayant",
+      "password": "1",
+      "email": "hsad",
+      "phone": "231321"
+    },
+    {
+      "id": "6OaO0_b",
+      "name": "kanchan",
+      "username": "jayant",
+      "password": "1",
+      "email": "hsad",
+      "phone": "231321"
+    }
+  ]
+}

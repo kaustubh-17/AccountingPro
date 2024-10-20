@@ -1,0 +1,82 @@
+<div class="set-position">
+    <div class="row pb-2">
+        <h2 class="text-primary" *ngIf="!expenseId">Add New Expense</h2>
+        <h2 class="text-primary" *ngIf="expenseId">Edit Expense</h2>
+    </div>
+    <form [formGroup]="expenseForm" (ngSubmit)="saveExpense()">
+        <div class="mb-3 row p-1">
+            <label for="category">Category</label>
+            <ng-select class="form-control" [items]="categories" bindLabel="categoryName" bindValue="categoryName"
+                formControlName="category" placeholder="Select category">
+            </ng-select>
+            <div *ngIf="expenseForm.get('category').touched && expenseForm.get('category').invalid" class="text-danger">
+                Category is required
+            </div>
+        </div>
+        <div class="mb-3 row p-1" *ngIf="expenseForm.get('category')?.value === 'Vendor'">
+            <label for="companyName">Company Name</label>
+            <ng-select class="form-control" [items]="companies" bindLabel="compName" bindValue="compName"
+                formControlName="companyName" placeholder="Select a company"
+                [ngClass]="(expenseForm.get('category')?.value === 'Vendor')?'ngselect ng-select ng-select-container':''">
+            </ng-select>
+            <div *ngIf="expenseForm.get('companyName').touched && expenseForm.get('companyName').invalid"
+                class="text-danger">
+                Company Name is required
+            </div>
+        </div>
+
+        <div class="mb-3 row p-1">
+            <label for="contractStart" *ngIf="expenseForm.get('category')?.value === 'Vendor'">Contract Start
+                Date</label>
+            <label for="contractStart" *ngIf="expenseForm.get('category')?.value !== 'Vendor'">Expense Start
+                date</label>
+            <input id="contractStart" type="date" class="form-control" formControlName="contractStart">
+            <div *ngIf="expenseForm.get('contractStart').touched && expenseForm.get('contractStart').invalid"
+                class="text-danger">
+                <div
+                    *ngIf="expenseForm.get('contractStart').errors?.required && expenseForm.get('category')?.value === 'Vendor'">
+                    Contract Start date is required</div>
+                <div
+                    *ngIf="expenseForm.get('contractStart').errors?.required && expenseForm.get('category')?.value !== 'Vendor'">
+                    Expense Start date is required</div>
+            </div>
+        </div>
+
+        <div class="mb-3 row p-1">
+            <label for="contractEnd" *ngIf="expenseForm.get('category')?.value === 'Vendor'">Contract End Date</label>
+            <label for="contractEnd" *ngIf="expenseForm.get('category')?.value !== 'Vendor'">Expense End date</label>
+            <input id="contractEnd" type="date" class="form-control" formControlName="contractEnd">
+            <div *ngIf="expenseForm.errors?.dateRange && expenseForm.get('contractEnd').touched" class="text-danger">
+                End Date must be greater than Start Date
+            </div>
+        </div>
+
+        <div class="mb-3 row p-1">
+            <label for="amount">Amount</label>
+            <input id="amount" type="number" class="form-control" formControlName="amount">
+            <div *ngIf="expenseForm.get('amount').touched && expenseForm.get('amount').invalid" class="text-danger">
+                <div *ngIf="expenseForm.get('amount').errors?.required">Amount is required</div>
+                <div *ngIf="expenseForm.get('amount').errors?.min">Amount must be greater than 0</div>
+            </div>
+        </div>
+
+        <div class="mb-3 row p-1">
+            <label for="mode">Mode</label>
+            <select id="mode" class="form-control dropdown" formControlName="mode">
+                <option value="cash">Cash</option>
+                <option value="UPI">UPI</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <button type="submit" class="btn btn-primary form-control"
+                    [disabled]="expenseForm.invalid">Save</button>
+            </div>
+            <div class="col-6">
+                <a class="btn btn-secondary form-control" [routerLink]="['/expense-tracker/expenses']">Back To List</a>
+            </div>
+        </div>
+    </form>
+    <app-success #success></app-success>
+</div>

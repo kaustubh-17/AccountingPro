@@ -1,0 +1,38 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-6 mt-4">
+            <div class="card ">
+                <div class="card-body">
+                    <h5 class="card-title">Total Payroll Expenses</h5>
+                    <p>{{ totalPayrollExpenses | currency:'INR':'symbol'}}</p>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">Expenses by Category</h5>
+                    <select (change)="onYearChangeInPie($event)" class="form-select">
+                        <option *ngFor="let year of availableYears" [value]="year">{{ year }}</option>
+                    </select>
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Yearly Expenses</h5>
+                    <select (change)="onYearChangeInBar($event)" class="form-select">
+                        <option *ngFor="let year of availableYears" [value]="year">{{ year }}</option>
+                    </select>
+                    <canvas id="barGraph"></canvas>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">Department-wise Payroll Expenses</h5>
+                    <canvas id="barGraph2"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

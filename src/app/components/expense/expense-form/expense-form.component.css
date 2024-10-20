@@ -1,0 +1,102 @@
+.set-position {
+  background: #ffffff; /* Light grey background */
+  border-radius: 1rem; /* Rounded corners */
+  box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.1), -2px -8px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 2rem; /* Spacing inside the form */
+  max-width: 80vw; /* Max width for responsiveness */
+  margin: 6rem 5rem 1rem 5rem; /* Center align with margin */
+  border: 1px solid #dee2e6; /* Light border */
+}
+
+.set-position h2 {
+  text-align: center;
+  color: #17a2b8; /* Info color for header */
+  margin-bottom: 0.5rem; /* Space below the header */
+}
+
+.set-position label {
+  font-weight: bold;
+  margin-bottom: 0.2rem; /* Space below label */
+  display: block; /* Ensure label is a block element */
+}
+
+.set-position input,
+.set-position select {
+  width: 100%; /* Full width input */
+  padding: 1rem; /* Padding inside input */
+  margin-bottom: 0.3rem; /* Space below input */
+  border-radius: 0.5rem; /* Rounded input corners */
+  border: 1px solid #ced4da; /* Light grey border */
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+.set-position ng-select,
+.ngselect {
+  width: 100%; /* Full width input */
+  padding: 0.5rem; /* Padding inside input */
+  margin-bottom: 0.3rem; /* Space below input */
+  border-radius: 0.5rem; /* Rounded input corners */
+  border: 1px solid #ced4da; /* Light grey border */
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+.ng-select .ng-select-container {
+  color: #333;
+  background-color: #ececec;
+  border: none;
+  min-height: 36px;
+  align-items: center;
+}
+
+.set-position .text-danger {
+  margin-top: -1rem; /* Adjust error message position */
+  margin-bottom: 0rem; /* Space below error message */
+  font-size: 0.9rem; /* Smaller font size for error message */
+}
+
+.set-position .btn {
+  width: 100%; /* Full width buttons */
+  padding: 1rem; /* Padding inside buttons */
+  border-radius: 0.5rem; /* Rounded button corners */
+  margin-top: 0.5rem; /* Space above buttons */
+}
+
+.set-position .btn-primary {
+  background-color: #17a2b8;
+  border: none;
+}
+
+.set-position .btn-primary:hover {
+  background-color: #138496; /* Darker info color on hover */
+}
+
+.set-position .btn-secondary {
+  background-color: #dfdfdf;
+  border: none;
+}
+
+.set-position .btn-secondary:hover {
+  background-color: #c9c9c9; /* Darker grey on hover */
+}
+
+.set-position .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Space between columns */
+}
+
+.set-position .col-6 {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .set-position {
+    padding: 1rem; /* Reduce padding on small screens */
+  }
+
+  .set-position .row {
+    flex-direction: column;
+  }
+
+  .set-position .col-6 {
+    width: 100%; /* Full width columns on small screens */
+  }
+}

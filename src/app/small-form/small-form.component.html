@@ -1,0 +1,15 @@
+<div class="form-popup">
+  <form style="color:black; font-size: smaller; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" (ngSubmit)="onSubmit()" #form="ngForm">
+    <label for="fileUpload" style="display: inline-block; margin-right: 10px;">Upload JPG File:</label>
+    <input type="file" id="fileUpload" name="fileUpload" accept="image/jpeg" (change)="onFileSelected($event)" style="margin-bottom: 10px;">
+    <br><br>
+    <label for="detail2" style="display: inline-block; margin-right: 10px;">Tagline </label>
+    <input type="text" id="detail2" name="detail2" [(ngModel)]="detail2" required>
+    <br><br>
+    <label for="detail3" style="display: inline-block; margin-right: 10px;">Description </label>
+    <input type="text" id="detail3" name="detail3" [(ngModel)]="detail3" required>
+    <br>
+    <button class="btn btn-success m-1" type="submit" (click)="onSubmit()">Submit</button>
+    <button class="btn btn-danger m-1" type="button" (click)="close()">Close</button>
+  </form>
+</div>

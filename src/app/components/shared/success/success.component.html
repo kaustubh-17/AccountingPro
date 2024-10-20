@@ -1,0 +1,18 @@
+<!-- success.component.html -->
+<div class="modal fade custom-modal" #successModal id="successModal" tabindex="-1"
+    aria-labelledby="deleteSuccessModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successModalLabel">Data Creation</h5>
+                <button type="button" class="btn-close" (click)="hide()"></button>
+            </div>
+            <div class="modal-body">
+                Inserted successfully.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="hide()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

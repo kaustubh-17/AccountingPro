@@ -1,0 +1,204 @@
+
+
+<div class="container">
+<section class="vh-150 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-2 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+ 
+              <div class="row">
+                <div class="col-md-12 mb-2 ">
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="text" id="employeeName" class="form-control form-control-lg" formControlName="emp_name" 
+                     [class.is-invalid]="registrationForm.get('emp_name')?.invalid && registrationForm.get('emp_name')?.touched "/>
+                    <label class="form-label" for="employeeName">Employee Name</label>
+                    <small class="text-danger" *ngIf="registrationForm.get('emp_name')?.invalid && registrationForm.get('emp_name')?.touched" >
+                      <br>
+                      Name is required and must be at least 3 characters long.
+                    </small>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-2">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <input (keyup)="usernameExists($event)" type="text" id="username" class="form-control form-control-lg" formControlName="emp_username" 
+                     [class.is-invalid]="unExists && registrationForm.get('emp_username')?.invalid && registrationForm.get('emp_username')?.touched "/>
+                    <label class="form-label" for="username">Username</label>
+                    <small class="text-danger" *ngIf="registrationForm.get('emp_username')?.invalid && registrationForm.get('emp_username')?.touched" ><br>
+                      Username is required and must be at least 3 characters long.
+                    </small>
+                    <small class="text-danger" *ngIf="unExists" ><br>
+                     Unique username required
+                    </small>
+
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-2">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="password" id="password" class="form-control form-control-lg" formControlName="emp_password" 
+                     [class.is-invalid]="registrationForm.get('emp_password')?.invalid && registrationForm.get('emp_password')?.touched "/>
+                    <label class="form-label" for="password">Password</label>
+                    <small class="text-danger" *ngIf="registrationForm.get('emp_password')?.invalid && registrationForm.get('emp_password')?.touched" >
+                      <br>
+                      Password should be 8 length alphanumeric string
+                    </small>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-2 pb-2">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="email" id="emailAddress" class="form-control form-control-lg" formControlName="emp_email"/>
+                    <label class="form-label" for="emailAddress">Email</label>
+                    <small class="text-danger" *ngIf="registrationForm.get('emp_email')?.invalid && registrationForm.get('emp_email')?.touched" ><br>
+                      Email is required with valid email format.
+                    </small>
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-2 pb-2">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="text" id="phoneNumber" class="form-control form-control-lg" formControlName="emp_phone" 
+                     [class.is-invalid]="registrationForm.get('emp_phone')?.invalid && registrationForm.get('emp_phone')?.touched "/>
+                    <label class="form-label" for="phoneNumber">Phone Number</label>
+                    <small class="text-danger" *ngIf="registrationForm.get('emp_phone')?.invalid && registrationForm.get('emp_phone')?.touched" >
+                      <br>
+                      Phone number must be of 10 digits long
+                    </small>
+                  </div>
+
+                </div>
+              </div>
+
+              
+              <div class="row">
+                  <br>
+                <div class="col-md-12 mb-2 ">
+
+                  <h6 class="mb-2 pb-1 form-check-inline">Gender: </h6>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="emp_gender" id="femaleGender" formControlName="emp_gender"
+                      checked value="Female" />
+                    <label class="form-check-label" for="femaleGender">Female</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="emp_gender" id="maleGender" formControlName="emp_gender"
+                      value="Male" />
+                    <label class="form-check-label" for="maleGender">Male</label>
+                  </div>
+                  
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="emp_gender" id="otherGender" formControlName="emp_gender"
+                      value="Other" />
+                    <label class="form-check-label" for="otherGender">Other</label>
+                  </div>
+
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-6 mb-2 pb-2">
+
+                  <select 
+    style="color:black !important" 
+    class="text-dark select form-control form-control-lg" 
+    formControlName="emp_department"
+    [class.is-invalid]="registrationForm.get('emp_department')?.invalid && registrationForm.get('emp_department')?.touched">
+    <option value="" class="text-muted" disabled selected style="color: black;">Choose department</option>
+    <option value="HR" style="color: black !important;">HR</option>
+    <option value="IT" style="color: black;">IT</option>
+    <option value="Finance" style="color: black;">Finance</option>
+    <option value="External" style="color: black;">External</option>
+</select>
+                  <label class="form-label select-label">Department</label>
+
+                </div>
+                <div class="col-md-6 mb-2 pb-2">
+
+                  <select class="select form-control form-control-lg" formControlName="emp_project"
+                   [class.is-invalid]="registrationForm.get('emp_project')?.invalid && registrationForm.get('emp_project')?.touched ">
+                    <option value="" class="text-muted" disabled selected>Choose project</option>
+                    <option >iTime</option>
+                    <option>iRem</option>
+                    <option>RAS</option>
+                    <option>AAM</option>
+                    <option>LMS</option>
+                    <option>GIT Infra</option>
+                    <option >BRQ</option>
+                    <option >MOIS</option>
+                    <option>HR-Enabling</option>
+                  </select>
+                  <label class="form-label select-label">Project</label>
+                </div>
+                
+              </div>
+              
+            <div class="row">
+                <div class="col-md-6 mb-2 pb-2">
+
+                  <select class="select form-control form-control-lg" formControlName="emp_role"
+                   [class.is-invalid]="registrationForm.get('emp_role')?.invalid && registrationForm.get('emp_role')?.touched ">
+                    <option  value="" class="text-muted" disabled selected>Choose role</option>
+                    <option >Trainee</option>
+                    <option >Junior</option>
+                    <option >Senior</option>
+                    <option >Lead</option>
+                    <option >Manager</option>
+                    <option >Sr. Manager</option>
+                    <option >General Manager</option>
+                    <option >CEO</option>
+                  </select>
+                  <label class="form-label select-label">Role</label>
+
+                </div>
+                <div class="col-md-6 mb-2 pb-2">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="text" id="salary" class="form-control form-control-lg" placeholder="₹ " formControlName="emp_salary" 
+                     [class.is-invalid]="registrationForm.get('emp_salary')?.invalid && registrationForm.get('emp_salary')?.touched "/>
+                    <label class="form-label" for="salary">Salary</label>
+                    
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-2 pb-2">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="number" id="experience" class="form-control form-control-lg" placeholder="Exp in years" formControlName="emp_experience" 
+                     [class.is-invalid]="registrationForm.get('emp_experience')?.invalid && registrationForm.get('emp_experience')?.touched "/>
+                    <label class="form-label" for="experience">Experience</label>
+                  </div>
+
+                </div>
+            </div>
+              <div class="mt-4 pt-2">
+                <input data-mdb-ripple-init class="btn btn-primary btn-lg" [disabled]="registrationForm.invalid" type="submit" value="Submit" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>

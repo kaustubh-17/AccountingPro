@@ -1,0 +1,36 @@
+<div class="container mt-1">
+    <div class="row pt-2 pb-3">
+        <div class="col-6">
+            <h2>Vendor List</h2>
+        </div>
+        <div class="col-6 text-end pr-4">
+            <button class="btn btn-success" [routerLink]="['/expense-tracker/create-company']">
+                <i class="fal fa-plus-square"></i> Add New Vendor</button>
+        </div>
+    </div>
+    <table class="table table-bordered table-group-divider table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Company ID</th>
+                <th>Company Name</th>
+                <th>Date of Venture</th>
+                <th>Domain</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let company of companies">
+                <td>{{ company.id }}</td>
+                <td>{{ company.compName }}</td>
+                <td>{{ company.dateOfVenture | date }}</td>
+                <td>{{ company.domain }}</td>
+                <td>
+                    <button class="btn btn-primary"
+                        [routerLink]="['/expense-tracker/edit-company', company.id]">Edit</button>
+                    <button class="btn btn-danger" (click)="openConfirmDialog(company.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <app-confirm-dialog #confirmDialog (confirm)="onConfirm($event)"></app-confirm-dialog>
+</div>

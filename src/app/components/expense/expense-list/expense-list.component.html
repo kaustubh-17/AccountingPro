@@ -1,0 +1,46 @@
+<div class="container mt-1">
+    <div class="row pt-4 pb-3">
+        <div class="col-3">
+            <h2 class="">Other Expenses</h2>
+        </div>
+        <!-- Category Filter -->
+        <div class="col-6 filter-box">
+            <input type="text" class="form-control" [formControl]="categoryFilter" placeholder="Filter by Category">
+        </div>
+        <div class="col-3 text-end pr-4">
+            <button class="btn btn-success" [routerLink]="['/expense-tracker/create-expense']">
+                <i class="fal fa-plus-square"></i>
+                Add New Expense</button>
+        </div>
+    </div>
+    <table class="table table-bordered table-group-divider table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Expanse ID</th>
+                <th>Category</th>
+                <th>Start Date</th>
+                <th>End date</th>
+                <th>Amount</th>
+                <th>Mode</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let expense of filteredExpenses">
+                <td>{{expense.id}}</td>
+                <td>{{ expense.category }}</td>
+                <td>{{ expense.contractStart | date }}</td>
+                <td>{{ expense.contractEnd | date }}</td>
+                <td>{{ expense.amount }}</td>
+                <td>{{ expense.mode }}</td>
+                <td>
+                    <button class="btn btn-primary"
+                        [routerLink]="['/expense-tracker/edit-expense', expense.id]">Edit</button>
+                    <button class="btn btn-danger " (click)="openConfirmDialog(expense.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <app-confirm-dialog #confirmDialog (confirm)="onConfirm($event)"></app-confirm-dialog>
+</div>

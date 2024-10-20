@@ -1,0 +1,297 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+
+<div class="container">
+<section class="vh-130 py-4" [hidden]="!edit">
+  <div class="container h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div *ngIf="employee" class="col-12 col-lg-9 col-xl-9" >
+        <div class="card " style="border-radius: .5rem;">
+          <div class="row g-0">
+            <div class="col-md-4 gradient-custom text-center text-white"
+              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+              <h5>{{employee.emp_name}}</h5>
+              <p>{{employee.emp_role}}</p>
+			  <i class="fa-regular fa-pen-to-square m-2" (click)="editEmployee()"></i>
+                    <i class="bi bi-trash m-2" (click)="deleteEmployee(employee.emp_id)"></i>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <h6>Personal Information</h6>
+                <hr class="mt-0 ">
+                <div class="row pt-1">
+                  <div class="col-6 mb-1">
+                    <h6>Username</h6>
+                    <p class="text-muted">{{employee.emp_username}}</p>
+                  </div>
+                  <div class="col-6 mb-1">
+                    <h6>Password</h6>
+                    <p class="text-muted">{{encryptedPassword}}</p>
+                  </div>
+                </div>
+				<div class="row pt-1">
+                  <div class="col-6 mb-1">
+                    <h6>Email</h6>
+                    <p class="text-muted">{{employee.emp_email}}</p>
+                  </div>
+                  <div class="col-6 mb-1">
+                    <h6>Phone</h6>
+                    <p class="text-muted">{{employee.emp_phone}}</p>
+                  </div>
+                </div>
+				<div class="row pt-1">
+                  <div class="col-6 mb-1">
+                    <h6>Gender</h6>
+                    <p class="text-muted">{{employee.emp_gender}}</p>
+                  </div>
+                  <div class="col-6 mb-1">
+                    <h6>Phone</h6>
+                    <p class="text-muted">{{employee.emp_phone}}</p>
+                  </div>
+                </div>
+
+                <h6>Business Information</h6>
+                <hr class="mt-0 mb-2">
+                <div class="row pt-1">
+                  <div class="col-6 ">
+                    <h6>Department</h6>
+                    <p class="text-muted">{{employee.emp_department}}</p>
+                  </div>
+                 
+                  <div class="col-6 ">
+                    <h6>Project</h6>
+                    <p class="text-muted">{{employee.emp_project}}</p>
+                  </div>
+                </div>
+				<div class="row pt-1">
+                  <div class="col-6">
+                    <h6>Role</h6>
+                    <p class="text-muted">{{employee.emp_role}}</p>
+                  </div>
+                  <div class="col-6">
+                    <h6>Salary</h6>
+                    <p class="text-muted">{{employee.emp_salary}}</p>
+                  </div>
+                </div>
+				<div class="row pt-1">
+                  <div class="col-6">
+                    <h6>Date of joining</h6>
+                    <p class="text-muted">{{employee.emp_doj}}</p>
+                  </div>
+                  <div class="col-6">
+                    <h6>Experience</h6>
+                    <p class="text-muted">{{employee.emp_experience}}</p>
+                  </div>
+                </div>
+				<div class="row pt-2">
+					<button type="button" class="btn btn-outline-primary btn-sm col-5 mx-2 text-sm" (click)="editEmployee()">Edit</button>
+					<button type="button" class="btn btn-outline-danger btn-sm col-5 text-sm" (click)="deleteEmployee(employee.emp_id)">Terminate</button>
+					</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+	<section class="vh-150 gradient-custom" [hidden]="edit">
+	<div class="container py-5 h-100">
+		<div class="row justify-content-center align-items-center h-100">
+		<div class="col-12 col-lg-9 col-xl-7">
+			<div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+			<div class="card-body p-4 p-md-5">
+				<h3 class="mb-2 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+				
+
+            <form [formGroup]="updateEmployeeForm" (ngSubmit)="updateEmployee()">
+ 
+              <div class="row">
+                <div class="col-md-12 mb-2 ">
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="text" id="employeeName" class="form-control form-control-lg" formControlName="emp_name" 
+                     [class.is-invalid]="updateEmployeeForm.get('emp_name')?.invalid && updateEmployeeForm.get('emp_name')?.touched "/>
+                    <label class="form-label" for="employeeName">Employee Name</label>
+                    <small class="text-danger" *ngIf="updateEmployeeForm.get('emp_name')?.invalid && updateEmployeeForm.get('emp_name')?.touched" >
+                      <br>
+                      Name is required and must be at least 3 characters long.
+                    </small>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-2">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="text" id="username" class="form-control form-control-lg" formControlName="emp_username" 
+                     [class.is-invalid]="updateEmployeeForm.get('emp_username')?.invalid && updateEmployeeForm.get('emp_username')?.touched "/>
+                    <label class="form-label" for="username">Username</label>
+                    <small class="text-danger" *ngIf="updateEmployeeForm.get('emp_username')?.invalid && updateEmployeeForm.get('emp_username')?.touched" > <br>
+                      Username is required and must be at least 3 characters long.
+                    </small>
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-2">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="password" id="password" class="form-control form-control-lg" formControlName="emp_password" 
+                     [class.is-invalid]="updateEmployeeForm.get('emp_password')?.invalid && updateEmployeeForm.get('emp_password')?.touched "/>
+                    <label class="form-label" for="password">Password</label>
+                    <small class="text-danger" *ngIf="updateEmployeeForm.get('emp_password')?.invalid && updateEmployeeForm.get('emp_password')?.touched" >
+                      <br>
+                      Password should be 8 length alphanumeric string
+                    </small>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-2 pb-2">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="email" id="emailAddress" class="form-control form-control-lg" formControlName="emp_email"/>
+                    <label class="form-label" for="emailAddress">Email</label>
+                    <small class="text-danger" *ngIf="updateEmployeeForm.get('emp_email')?.invalid && updateEmployeeForm.get('emp_email')?.touched" ><br>
+                      Email is required with valid email format.
+                    </small>
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-2 pb-2">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="text" id="phoneNumber" class="form-control form-control-lg" formControlName="emp_phone" 
+                     [class.is-invalid]="updateEmployeeForm.get('emp_phone')?.invalid && updateEmployeeForm.get('emp_phone')?.touched "/>
+                    <label class="form-label" for="phoneNumber">Phone Number</label>
+                    <small class="text-danger" *ngIf="updateEmployeeForm.get('emp_phone')?.invalid && updateEmployeeForm.get('emp_phone')?.touched" >
+                      <br>
+                      Phone number must be of 10 digits long
+                    </small>
+                  </div>
+
+                </div>
+              </div>
+
+              
+              <div class="row">
+                  <br>
+                <div class="col-md-12 mb-2 ">
+
+                  <h6 class="mb-2 pb-1 form-check-inline">Gender: </h6>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="emp_gender" id="femaleGender" formControlName="emp_gender"
+                      checked value="Female" />
+                    <label class="form-check-label" for="femaleGender">Female</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="emp_gender" id="maleGender" formControlName="emp_gender"
+                      value="Male" />
+                    <label class="form-check-label" for="maleGender">Male</label>
+                  </div>
+                  
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="emp_gender" id="otherGender" formControlName="emp_gender"
+                      value="Other" />
+                    <label class="form-check-label" for="otherGender">Other</label>
+                  </div>
+
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-6 mb-2 pb-2">
+
+                  <select 
+    style="color:black !important" 
+    class="text-dark select form-control form-control-lg" 
+    formControlName="emp_department"
+    [class.is-invalid]="updateEmployeeForm.get('emp_department')?.invalid && updateEmployeeForm.get('emp_department')?.touched">
+    <option value="" class="text-muted" disabled selected style="color: black;">Choose department</option>
+    <option value="HR" style="color: black !important;">HR</option>
+    <option value="IT" style="color: black;">IT</option>
+    <option value="Finance" style="color: black;">Finance</option>
+    <option value="External" style="color: black;">External</option>
+</select>
+                  <label class="form-label select-label">Department</label>
+
+                </div>
+                <div class="col-md-6 mb-2 pb-2">
+
+                  <select class="select form-control form-control-lg" formControlName="emp_project"
+                   [class.is-invalid]="updateEmployeeForm.get('emp_project')?.invalid && updateEmployeeForm.get('emp_project')?.touched ">
+                    <option value="" class="text-muted" disabled selected>Choose project</option>
+                    <option >iTime</option>
+                    <option >BRQ</option>
+                    <option >MOIS</option>
+                    <option >Another</option>
+                  </select>
+                  <label class="form-label select-label">Project</label>
+                </div>
+                
+              </div>
+              
+            <div class="row">
+                <div class="col-md-6 mb-2 pb-2">
+
+                  <select class="select form-control form-control-lg" formControlName="emp_role"
+                   [class.is-invalid]="updateEmployeeForm.get('emp_role')?.invalid && updateEmployeeForm.get('emp_role')?.touched ">
+                    <option  value="" class="text-muted" disabled selected>Choose role</option>
+                    <option >Trainee</option>
+                    <option >Junior</option>
+                    <option >Senior</option>
+                    <option >Lead</option>
+                    <option >Manager</option>
+                    <option >Sr. Manager</option>
+                    <option >General Manager</option>
+                    <option >CEO</option>
+                  </select>
+                  <label class="form-label select-label">Role</label>
+
+                </div>
+                <div class="col-md-6 mb-2 pb-2">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="text" id="salary" class="form-control form-control-lg" placeholder="₹ " formControlName="emp_salary" 
+                     [class.is-invalid]="updateEmployeeForm.get('emp_salary')?.invalid && updateEmployeeForm.get('emp_salary')?.touched "/>
+                    <label class="form-label" for="salary">Salary</label>
+                    
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-2 pb-2">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="number" id="experience" class="form-control form-control-lg" placeholder="Exp in years" formControlName="emp_experience" 
+                     [class.is-invalid]="updateEmployeeForm.get('emp_experience')?.invalid && updateEmployeeForm.get('emp_experience')?.touched "/>
+                    <label class="form-label" for="experience">Experience</label>
+                  </div>
+
+                </div>
+            </div>
+              <div class="mt-4 pt-2">
+                <input data-mdb-ripple-init class="btn btn-primary btn-lg" [disabled]="updateEmployeeForm.invalid" type="submit" value="Submit" />
+              </div>
+            </form>
+			</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	</section>
+</div>

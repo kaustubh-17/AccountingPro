@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+ <div class="container">
+    <br>
+
+<h1>Employee List</h1>
+<hr>
+    <table style="background-color: transparent;" class="table table-hover table-bordered border-primary">
+        <thead class="table-primary">
+            <tr>
+            <th scope="col">S No</th>
+            <th scope="col">Employee Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Department</th>
+            <th scope="col">Project</th>
+            <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of employeeList; let i = index">
+                <th scope="row" >{{i+1}}</th>
+                <td>{{emp.emp_name}}</td>
+                <td>{{emp.emp_username}}</td>
+                <td>{{emp.emp_email}}</td>
+                <td>{{emp.emp_department}}</td>
+                <td>{{emp.emp_project}}</td>
+                <td>
+                    <i class="bi bi-info-circle m-2" style="color:rgb(2, 165, 229)" [routerLink]="'/employees/'+emp.emp_id"></i>
+                    <i class="fa-solid fa-indian-rupee-sign m-2" style="color:green" [routerLink]="'/uploadpayroll/'+emp.emp_id"></i>
+                    <i class="bi bi-trash m-2" style="color:red;" (click)="deleteEmployee(emp.emp_id)"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <!-- HTML !-->
+<!-- HTML !-->
+ <div style="text-align: center;">
+<button (click)="filtername()" style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);background-color: black; color:white" class="btn btn-success m-2">Sort by Name</button>
+<button (click)="filterdept()" style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);background-color: rgb(0, 0, 0); color:white" class="btn btn-info m-2">Sort by Department</button>
+<button (click)="filterproject()" style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);background-color: black; color:white" class="btn btn-danger m-2">Sort by Project</button>
+<button (click)="bulkupdateemployees()" style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);background-color: rgb(211, 0, 0); color:white" class="btn btn-info m-2">Bulk Update Employees</button>
+</div>
+
+<br>
+<br>
+</div>

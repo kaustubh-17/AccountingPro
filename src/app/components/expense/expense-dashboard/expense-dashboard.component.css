@@ -1,0 +1,26 @@
+.card {
+  background: #ffffff; /* White background */
+  border-radius: 4%; /* Rounded corners */
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1), 0 15px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 1.2rem; /* Spacing inside the card */
+  max-width: 35vw; /* Max width for responsiveness */
+  margin: 1.5rem auto; /* Center align with margin */
+  margin-top: 0.5rem;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-title {
+  font-size: 1.5em; /* Larger title */
+  color: #333; /* Dark grey color */
+  margin-bottom: 1rem; /* Space below the title */
+}
+
+canvas {
+  width: 100%; /* Full width canvas */
+  height: auto; /* Auto height for responsiveness */
+}
