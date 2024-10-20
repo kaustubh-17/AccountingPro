@@ -2,6 +2,10 @@
 
 **AccountingPro** is a web-based accounting application designed for companies to manage employee-related data, financial records, and HR operations. It features role-based access for HR, Employees, and Finance, each with distinct functionalities such as managing employee records, accessing payslips, and overseeing expenses.
 
+## Deployment
+
+The application is deployed at [https://accountingpro-95b3b.web.app/login](https://accountingpro-95b3b.web.app/login).
+
 ## Project Structure
 
 The project is organized into two main parts:
@@ -61,10 +65,6 @@ The project is organized into two main parts:
   ng serve
   ```
 - Access the application at `http://localhost:4200`.
-
-## Deployment
-
-The application is deployed at [https://accountingpro-95b3b.web.app/login](https://accountingpro-95b3b.web.app/login).
 
 ## Tech Stack
 
