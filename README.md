@@ -2,6 +2,13 @@
 
 **AccountingPro** is a web-based accounting application designed for companies to manage employee-related data, financial records, and HR operations. It features role-based access for HR, Employees, and Finance, each with distinct functionalities such as managing employee records, accessing payslips, and overseeing expenses.
 
+![EmployeeList](src/assets/2.png)
+![Expense](src/assets/5.png)
+![PDF1](src/assets/3.png)
+![PDF2](src/assets/4.png)
+![Swagger](src/assets/1.png)
+
+
 ## Deployment
 
 The application is deployed at [https://accountingpro-95b3b.web.app/login](https://accountingpro-95b3b.web.app/login).
