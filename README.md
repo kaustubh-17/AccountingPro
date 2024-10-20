@@ -11,7 +11,7 @@
 
 ## Deployment
 
-The application is deployed at [https://accountingpro-95b3b.web.app/login](https://accountingpro-95b3b.web.app).
+The application is deployed at [https://accountingpro-95b3b.web.app](https://accountingpro-95b3b.web.app).
 
 ## Project Structure
 
