@@ -1,27 +1,91 @@
 # AccountingPro
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+**AccountingPro** is a web-based accounting application designed for companies to manage employee-related data, financial records, and HR operations. It features role-based access for HR, Employees, and Finance, each with distinct functionalities such as managing employee records, accessing payslips, and overseeing expenses.
 
-## Development server
+## Project Structure
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The project is organized into two main parts:
+- **AccountingProAPI** - Contains the .NET Core web API code.
+- **Angular Frontend** - Contains the Angular code for the front-end interface.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Role-Based Access
 
-## Build
+- **HR**:
+  - Perform CRUD operations on employee records.
+  - Manage employee details and contracts.
+- **Employee**:
+  - View personal details.
+  - Access payslips and other employee-specific information.
+- **Finance**:
+  - Manage expenses.
+  - Perform financial reporting and audits.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Installation
 
-## Running unit tests
+### Prerequisites
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- [.NET Core SDK](https://dotnet.microsoft.com/download) (Version 7.0 or higher)
+- [Node.js and npm](https://nodejs.org/en/download/)
+- [Angular CLI](https://angular.io/cli)
 
-## Running end-to-end tests
+### Backend Setup
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Navigate to the `AccountingProAPI` folder:
+  ```bash
+  cd AccountingProAPI
+  ```
+- Restore dependencies and build the API:
+  ```bash
+  dotnet restore
+  dotnet build
+  ```
+- Run the API:
+  ```bash
+  dotnet run
+  ```
 
-## Further help
+### Frontend Setup
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Navigate to the Angular project folder:
+  ```bash
+  cd ../<Angular-Folder-Name>
+  ```
+- Install Angular dependencies:
+  ```bash
+  npm install
+  ```
+- Run the Angular application:
+  ```bash
+  ng serve
+  ```
+- Access the application at `http://localhost:4200`.
+
+## Deployment
+
+The application is deployed at [https://accountingpro-95b3b.web.app/login](https://accountingpro-95b3b.web.app/login).
+
+## Tech Stack
+
+- **Frontend**: Angular
+- **Backend**: .NET Core Web API
+- **Database**: (Specify the database used, e.g., SQL Server, MySQL)
+- **Authentication**: (Specify if any, e.g., JWT, OAuth)
+
+## Folder Structure
+
+- **AccountingProAPI/**: Contains all server-side code, including controllers, models, and services.
+- **[Angular-Folder-Name]/**: Contains the client-side code, services, components, and routing modules.
+
+## Contributing
+
+- Fork the repository.
+- Create a new branch.
+- Make your changes.
+- Submit a pull request.
+
+## License
+
+Specify the license under which the project is distributed.
+
