@@ -95,5 +95,5 @@ The project is organized into two main parts:
 
 ## License
 
-Specify the license under which the project is distributed.
+This project is licensed under the [MIT License](LICENSE).
 
