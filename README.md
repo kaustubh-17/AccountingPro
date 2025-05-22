@@ -6,13 +6,7 @@ The application is deployed at [https://accountingpro-95b3b.web.app](https://acc
 
 You can login via following users (username = firstname.lastname | password = firstname123):-
 
-Kaustubh Srivastava (HR)
-
-Vipul Sharma (Finance)
-
-Jayant Yadav (Employee)
-
-Riya Tomar (Employee)
+Kaustubh Srivastava (HR), Vipul Sharma (Finance), Jayant Yadav (Employee), Riya Tomar (Employee)
 
 ![EmployeeList](src/assets/2.png)
 ![Expense](src/assets/5.png)
