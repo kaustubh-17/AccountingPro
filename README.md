@@ -62,7 +62,7 @@ The project is organized into two main parts:
 
 - Navigate to the Angular project folder:
   ```bash
-  cd ../<Angular-Folder-Name>
+  cd ../AccountingPro
   ```
 - Install Angular dependencies:
   ```bash
