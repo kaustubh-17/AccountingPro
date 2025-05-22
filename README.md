@@ -78,13 +78,13 @@ The project is organized into two main parts:
 
 - **Frontend**: Angular
 - **Backend**: .NET Core Web API
-- **Database**: (Specify the database used, e.g., SQL Server, MySQL)
-- **Authentication**: (Specify if any, e.g., JWT, OAuth)
+- **Database**: SQL Server
+- **Authentication**: Firebase
 
 ## Folder Structure
 
-- **AccountingProAPI/**: Contains all server-side code, including controllers, models, and services.
-- **[Angular-Folder-Name]/**: Contains the client-side code, services, components, and routing modules.
+- **AccountingProAPI**: Contains all server-side code, including controllers, models, and services.
+- **AccountingPro**: Contains the client-side code, services, components, and routing modules.
 
 ## Contributing
 
